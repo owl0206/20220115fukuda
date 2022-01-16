@@ -124,6 +124,11 @@
       <div class="todolist">
         <form action="/todo/create" method="post">
           @csrf
+          @if ($errors)
+            @foreach ($errors->all() as $error)
+              <p>{{$error}}</p>
+            @endforeach
+          @endif
           <input type="text" name="content" class="createbox">
           <input type="submit" value="追加" class="create-button">
         </form>
